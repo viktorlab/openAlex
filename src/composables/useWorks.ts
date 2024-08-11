@@ -1,11 +1,11 @@
-import { useSearchStore } from '@/stores/search';
-import { useFetch } from './useFetch';
 import { ref, watch } from 'vue';
+import { throttle } from 'lodash';
+import { useSearchStore } from '@/stores/search';
 import { baseQueryParams, BASE_URL } from '@/constants/http';
 import { type HttpResponse } from '@/entities/http';
 import { type Work } from '@/entities/works';
 import { initialHttpResponse } from '@/constants/initialHttpResponse';
-import { throttle } from 'lodash';
+import { useFetch } from './useFetch';
 
 export function useWorks() {
   const searchStore = useSearchStore();

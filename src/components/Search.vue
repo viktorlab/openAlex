@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useSearchStore } from '@/stores/search';
 import { useRouter } from 'vue-router';
+import { routeConfig } from '@/router/routeConfig';
 
 const searchStore = useSearchStore();
 const router = useRouter();
@@ -9,7 +10,7 @@ const updateSearchTerm = (event: Event) => {
   const target = event.target as HTMLInputElement;
   searchStore.setSearchTerm(target.value);
 
-  router.push({ path: '/' });
+  router.push({ path: routeConfig.works.path });
 };
 </script>
 

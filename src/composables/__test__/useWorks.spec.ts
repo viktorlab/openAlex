@@ -1,12 +1,12 @@
 import { ref } from 'vue';
 import { describe, it, expect, beforeEach, vi, type Mock } from 'vitest';
-import { useWorks } from '../useWorks';
-import { useFetch } from '../useFetch';
 import { useSearchStore } from '@/stores/search';
 import { initialHttpResponse } from '@/constants/initialHttpResponse';
 import { type HttpResponse } from '@/entities/http';
 import { type Work } from '@/entities/works';
 import { BASE_URL } from '@/constants/http';
+import { useWorks } from '../useWorks';
+import { useFetch } from '../useFetch';
 
 vi.mock('../useFetch');
 vi.mock('@/stores/search');
@@ -60,7 +60,7 @@ describe('useWorks composable', () => {
     const searchStore = useSearchStore();
 
     searchStore.setSearchTerm('test search term');
-    await works.value;
+    works.value;
 
     expect(mockReload).toHaveBeenCalled();
 
@@ -85,7 +85,7 @@ describe('useWorks composable', () => {
 
     expect(mockReload).toHaveBeenCalledTimes(1);
 
-    await works.value;
+    works.value;
 
     expect(useFetch).toHaveBeenCalledWith(
       `${BASE_URL}/works`,
