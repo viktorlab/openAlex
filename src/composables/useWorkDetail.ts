@@ -2,7 +2,7 @@ import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useFetch } from './useFetch';
 import type { Work } from '@/entities/works';
-import { BASE_URL } from '@/constants/http';
+import { BASE_URL, baseQueryParams } from '@/constants/http';
 
 export function useWorkDetail() {
   const route = useRoute();
@@ -12,7 +12,10 @@ export function useWorkDetail() {
     result: work,
     isLoading,
     reload
-  } = useFetch<Work | null>(`${BASE_URL}/works/${workId.value}`, null);
+  } = useFetch<Work | null>(`${BASE_URL}/works/${workId.value}`, null, {
+    method: 'GET',
+    queryParams: baseQueryParams
+  });
 
   onMounted(() => {
     reload();
