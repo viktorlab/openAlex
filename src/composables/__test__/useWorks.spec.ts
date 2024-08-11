@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { describe, it, expect, beforeEach, vi, Mock } from 'vitest';
+import { describe, it, expect, beforeEach, vi, type Mock } from 'vitest';
 import { useWorks } from '../useWorks';
 import { useFetch } from '../useFetch';
 import { useSearchStore } from '@/stores/search';
